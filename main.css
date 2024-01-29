@@ -1,16 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,900;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,900;1,300;1,400&display=swap');
+
 * {
     margin: 0;
     padding: 0;
 }
 
+:root {
+    --g1: rgb(98, 0, 234);
+    --g2: rgb(236, 64, 122);
+    --yellow: #F0DB4F;
+    --cream: #FFFDD0;
+    --green: #2AAA8A;
+    --blue: #3776ab;
+}
+
 body {
     background-color: black;
     margin: 0;
+    height: 100%;
 }
 
 .blob {
-    position: absolute;
+    position: fixed;
     background-image: linear-gradient(to right, aquamarine, mediumpurple);
     height: 500px;
     width: 500px;
@@ -19,11 +30,11 @@ body {
     border-radius: 50%;
     animation: spinningAnimation 20s infinite;
     translate: -50% -50%;
-    /* filter: blur(200px); */
+    filter: blur(200px);
 }
   
 .blur {
-    position: absolute;
+    position: fixed;
     height: 100%;
     width: 100%;
     backdrop-filter: blur(200px);
@@ -33,7 +44,7 @@ body {
 .section {
     color: White;
     z-index: 1;
-    position: absolute;
+    position: relative;
     height: 100vh;
     width: 100vw;
 }
@@ -53,7 +64,7 @@ body {
 #one > .heading > p {
     font-family: 'Rubik', sans-serif;
     font-weight: 300px;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 #one > .image {
@@ -69,6 +80,140 @@ body {
     width: 250px;
 }
 
+.card {
+    aspect-ratio: 2 / 3;
+    height: 50%;
+    margin: 1%;
+    /* border: 3px solid black;
+    border-radius: 5%; */
+    /* background-image: linear-gradient(
+        to right,
+        var(--g1),
+        var(--g2),
+        var(--g1)
+    );
+    overflow: hidden;
+    background-size: 200%;
+    animation: pan 4s linear infinite; */
+    position: relative;
+    
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    grid-template-rows: repeat(var(--rows), 1fr);
+}
+
+.header {
+    position: absolute;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    font-size: 2rem;
+    top: 5%;
+}
+
+.card:nth-child(2) {
+    background: linear-gradient(
+        to right,
+        var(--yellow),
+        var(--cream),
+        var(--yellow)
+    );
+    /* overflow: hidden; */
+    background-size: 200%;
+    animation: pan 4s linear infinite;
+}
+
+.card:nth-child(3) {
+    background: linear-gradient(
+        to right,
+        var(--g2),
+        var(--cream),
+        var(--g2)
+    );
+    /* overflow: hidden; */
+    background-size: 200%;
+    animation: pan 4s linear infinite;
+}
+
+.card:nth-child(4) {
+    background: linear-gradient(
+        to right,
+        var(--green),
+        var(--cream),
+        var(--green)
+    );
+    /* overflow: hidden; */
+    background-size: 200%;
+    animation: pan 4s linear infinite;
+}
+
+.card:nth-child(5) {
+    background: linear-gradient(
+        to right,
+        var(--blue),
+        var(--cream),
+        var(--blue)
+    );
+    /* overflow: hidden; */
+    background-size: 200%;
+    animation: pan 4s linear infinite;
+}
+
+.card-header {
+    font-family: 'Rubik', sans-serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    color: slategray;
+    position: absolute;
+    width: 100%; /* Make the header the same width as the card */
+    top: 0; /* Align to the top of the card-container */
+    transform: translateY(-120%); /* Move the header above the card */
+    text-align: center; /* Center the header text */
+}
+
+.icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transition: opacity 1200ms ease;
+    pointer-events: none;
+    gap: 1.5rem;
+}
+
+.icon {
+    pointer-events: none;
+    font-size: 7rem;
+}
+
+.toggled {
+    opacity: 0;
+}
+
+#two {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tile {
+    position: relative;
+}
+
+.tile:before {
+    background-color: rgb(20, 20, 20);
+    content: "";
+    position: absolute;
+    inset: 0.5px;
+}
+
+.tile:hover:before{
+    opacity: 50%;
+}
   
 @keyframes spinningAnimation {
     from {
@@ -82,4 +227,15 @@ body {
     to {
       rotate: 360deg;
     }
+}
+
+@keyframes pan {
+    from{
+        background-position: 0%;
+    }
+
+    to {
+        background-position: -200%;
+    }
+
 }
