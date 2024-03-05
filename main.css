@@ -12,6 +12,13 @@
     --cream: #FFFDD0;
     --green: #2AAA8A;
     --blue: #3776ab;
+    --js-yellow: #f7df1e;
+    --css-blue: #0095FF;
+    --html-red: #E34F26;
+    --angular-red: #DD1B16;
+    --react-blue: #61DAFB;
+    --spring-green:#00A98F;
+    --python-blue: #3776AB;
 }
 
 body {
@@ -68,14 +75,15 @@ body {
 }
 
 #one > .image {
-    border-radius: 50%;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
     overflow: hidden;
     margin-left: 75px;
+    animation: bubble 4s ease-in-out infinite;
+    border: 2px solid white;
 }
 
 #one > .image > img {
     object-fit: cover;
-    aspect-ratio: 1;
     height: 250px;
     width: 250px;
 }
@@ -113,9 +121,9 @@ body {
 .card:nth-child(2) {
     background: linear-gradient(
         to right,
-        var(--yellow),
-        var(--cream),
-        var(--yellow)
+        #0077B6,
+        #FFA500,
+        #0077B6
     );
     /* overflow: hidden; */
     background-size: 200%;
@@ -190,6 +198,14 @@ body {
     font-size: 7rem;
 }
 
+.fa-square-js { color: var(--js-yellow); }
+.fa-css3-alt { color: var(--css-blue); text-shadow: 0px 0px 2px slategray; }
+.fa-html5 { color: var(--html-red); text-shadow: 0px 0px 2px slategray; }
+.fa-react { color: var(--react-blue); }
+.fa-angular { color: var(--angular-red); }
+.fa-leaf{ color: var(--spring-green); }
+.fa-python{ color:var(--python-blue); }
+
 .toggled {
     opacity: 0;
 }
@@ -214,7 +230,218 @@ body {
 .tile:hover:before{
     opacity: 50%;
 }
+
+.two-footer {
+    position: absolute;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    color: slategray;
+    font-style: italic;
+    top: 85%;
+}
   
+#three {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.three-section-grid-container {
+    width: 80%; /* Set the width to 80% of its parent */
+    height: 80%; /* Set the height to 80% of its parent */
+    display: grid;
+    gap: 2rem; /* Adjust the gap as needed */
+    grid-template-areas: 
+        "contact about about"
+        "contact projects projects";
+}
+
+.three-section-side {
+    border-radius: 10px;
+    background: #232526; 
+    background: -webkit-linear-gradient(to right, #232526, #414345); 
+    background: linear-gradient(to right, #232526, #414345);    
+}
+
+.three-section {
+    border-radius: 10px;
+}
+
+.three-section:nth-child(2) {
+    background: #4B79A1;  
+    background: -webkit-linear-gradient(to right, #283E51, #4B79A1); 
+    background: linear-gradient(to right, #283E51, #4B79A1); 
+}
+
+.three-section:nth-child(3) {
+  background: #fd746c; 
+  background: -webkit-linear-gradient(to right, #fd746c, #ff9068);
+  background: linear-gradient(to right, #fd746c, #ff9068); 
+}
+
+#contact { 
+    grid-area: contact; 
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    text-align: center; 
+}
+#about { grid-area: about; }
+
+#contact > h2 {
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    font-size: 2rem;
+    font-weight: 300;
+    width: 90%;
+    border-bottom: 2px solid white;
+    padding: .5rem;
+}
+
+.contact-icons {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-icons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 1rem;
+}
+
+.contact-icons-container > span, a{
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1rem;
+    padding: .5rem;
+}
+
+.contact-icon {
+    font-size: 2rem;
+}
+
+.email-form {
+    display: flex;
+    align-items: baseline;
+    flex-direction: column;
+    height: 50%;
+}
+
+.email-form > label {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    font-family: 'Rubik', sans-serif;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.email-form input[type="email"],
+.email-form textarea {
+    position: relative;
+    padding: .5rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    resize: none;
+    width: 90%; 
+}
+
+button[type="submit"] {
+    margin-top: .5rem;
+    background-color: slategrey; 
+    color: white; 
+    border: none; 
+    padding: .5rem 1rem; 
+    border-radius: 3px;
+}
+
+textarea[name="message"]{
+    position: relative;
+    height: 13rem;
+}
+#about > h2, p {
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    padding: 1rem;
+}
+
+#about > h2 {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+#about > p {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+#projects { 
+    grid-area: projects;
+    display: flex;
+    flex-direction: row; 
+}
+
+#projects > h2, p {
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    padding: 1rem;
+}
+
+#projects > h2 {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.project{
+    aspect-ratio: 2 / 3;
+    width: 175px;
+    background-color: white;
+    position: relative;
+    margin: 1rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.project > img {
+    object-fit: cover;
+    width: 100%;
+}
+
+.project-info {
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #272727; 
+    opacity: 0.8;
+    position: absolute;
+    height: 100%;
+    width: 175px; /* Make this the same width as the .project container to cover the image */
+    top: 100%; /* Start from the bottom of the container */
+    transition: top .5s ease-in-out; /* Use transition for smooth sliding effect */
+}
+
+.project:hover .project-info {
+    top: 0; 
+}
+
+.project-info > h3 {
+    margin: .5rem;
+}
+
+.project-info > p {
+    width: 80%;
+    font-size: .7rem;
+}
+
 @keyframes spinningAnimation {
     from {
       rotate: 0deg;  
@@ -238,4 +465,28 @@ body {
         background-position: -200%;
     }
 
+}
+
+@keyframes bubble {
+    0% {
+        border-radius: 60% 40% 40% 70% / 60% 30% 70% 40%;
+    }
+
+    50% {
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 70%;
+    }
+
+    100% {
+        border-radius: 60% 40% 40% 70% / 60% 30% 70% 40%;
+    }
+}
+
+@keyframes slide {
+    from {
+        top: 100%;
+    }
+
+    to {
+        top: 0;
+    }
 }
